@@ -1,0 +1,119 @@
+% To generate the summary
+%\documentclass[english,10.5pt,letterpaper,twoside]{article}	% specify the class for style
+%\usepackage{mathpazo}
+
+\documentclass[english,11pt,letterpaper,twoside]{article}	% specify the class for style
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}		% use Adobe PostScript font (better than times)
+
+% For URLs in the references
+\usepackage{url}
+
+% Advanced Math
+\usepackage{amsmath}
+\usepackage{amssymb}	% double line font letters (for number sets N,Z,D,Q,R)
+
+% Images and Floats
+\usepackage{epsfig}
+%\usepackage{subfigure}
+%\usepackage{lscape}			% landscape
+%\usepackage{array}			% align vertically in tables
+%\usepackage{multirow}
+
+% Theorems, Definitions, ... (always after 'amsmath')
+%\usepackage{amsthm}
+%\theoremstyle{definition}
+%\newtheorem{prop}{Proposition}%[section]
+%\newtheorem{lemma}{Lemma}%[section]
+
+% Algorithm environment
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+
+% Commutative diagrams
+%\usepackage{diagrams}
+
+
+\usepackage[margin=1in]{geometry}
+\setlength\headsep{20pt}
+
+% Reduce the margins and spacings
+\parskip 1mm
+
+\frenchspacing	% no double space after end of line period.
+
+% Add a header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}	% clear header
+\fancyfoot{}	% clear footer (removes page number!)
+% Set the header and footer content
+%E: Even page
+%O: Odd page
+%L: Left field
+%C: Center field
+%R: Right field
+%H: Header
+%F: Footer
+\usepackage{color}
+\definecolor{light-gray}{RGB}{128,128,128}
+\fancyhead[CO,CE]{\textit{\textcolor{light-gray}{\small Title}}}
+\fancyfoot[LO,LE]{\textit{\textcolor{light-gray}{\small E. Syriani}}}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.1pt}	% add a line with a specific thickness
+\renewcommand{\footrulewidth}{0.1pt}	% add a line with a specific thickness
+\newcommand{\monica}[1]{\textbf{\textcolor{red}{#1}}}
+\newcommand{\eugene}[1]{\textbf{\textcolor{blue}{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Standard shortcuts
+\newcommand{\eg}{\emph{e.g.,~}}							% exempli gratia (for the sake of example)
+\newcommand{\ie}{\emph{i.e.,~}}							% id est (that is)
+\newcommand{\etal}{~\emph{et al.}}					% et alia (and others)
+\newcommand{\Fig}[1][Figure]{#1~}						% choose Fig. or Figure, depending on the style
+\newcommand{\Sect}[1][Section]{#1~}					% section name always with a capital S
+\newcommand{\Elem}[1]{\textsf{#1}}					% name of model element
+\newcommand{\Lang}[1]{\textit{\textsf{#1}}}	% language, formalism name
+\newcommand{\Rule}[1]{\texttt{#1}}					% rule name
+\newcommand{\Code}[1]{\textit{\texttt{#1}}}	% inline code
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\fontsize{11.5}{13.5}\selectfont
+
+%\normalem		% disables \emph to underline because overridden in ulem
+
+\input{summary.tex}
+
+\clearpage
+\setcounter{page}{1}
+
+\input{intro.tex}
+
+\input{research.tex}
+
+\input{education.tex}
+
+\input{schedule.tex}
+
+\input{prior-support.tex}
+
+\clearpage
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Specify the bibliography style and data
+\bibliographystyle{cj}
+%\bibliography{bibliography}
+
+\clearpage
+
+\input{dmp.tex}
+
+\end{document}
