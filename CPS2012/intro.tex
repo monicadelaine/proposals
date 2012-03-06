@@ -1,18 +1,9 @@
-
 \section{Introduction}
+Robotic systems are an important class of CPS. The ability of robots to interact intelligently with the world rests upon embedded computation and communication, real-time control, and perception of the world around them. Integration of sensors and actuators into a single cohesive robotics system often requires a composition of service-based components that either produce, consume or transform information in a loosely coupled, parallel manner.
+Although there are many innovations from software engineering that have been utilized successfully within robotics architectures, there is a notable exception when it comes to identifying the system of record for device syntax and semantics.  In the context of robotics, this failure results several issues.  First, if a developer chooses to use a framework, the accompanying abstract will loose important details about error models that are inherent to the hardware device.  Second, If a framework is not used, then the developer is tasked with being not only an expert at sensor-fusion and the creation of autonomous controller but also an expert on the device interface's services, the syntax to access them and the semantics of what each service provides.  Rather than require developers possess expertise in both hardware devices and autonomy, the use of a hardware description language that captures the manufacturer invariant properties of how to use on-board services and what the semantics of the provided information mean can allow for discovery at development time and provide a runtime environment.
+RDIS (Robotics Device Interface Specification) is a DSL (domain specific language) that describes the syntax and semantics of two classes of robot device (differential drive and range).  The proposed research concerns the expansion of RDIS to a larger class of robot systems including skid-steered platforms and popular kinematic chains used in manufacturing robots as well as new robot sensors including force and torque sensors.
 
-The intro
-
-\subsection{Intellectual Merit: ...}
-
-Intellectual merit.
-
-
-\subsubsection*{Key Research Challenges}
-
-Summary of the challenges.
-
-
-\subsection{Broader Impacts}
-
-Broader impacts.
+- describe how the project goals and research and education outcomes will contribute to the realization of the CPS program goal and vision;
+- explain their specific contribution to CPS science and technology;
+- specify how the project research will contribute to one or more of the three CPS Research Target Areas;
+- explain how the project research fits the Program Description for the type of Proposal (Breakthrough, Synergy, or Frontiers);
