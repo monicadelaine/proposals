@@ -72,4 +72,16 @@ Additionally, transmissions mark a point of control for the robot application. I
 
 With the major components of the model identified via a survey of existing frameworks, what remains is to discover which components are required to produce a full implementation of the RDIS model. To that end, further research is required. At this point, the relationship between the kinematic model and the control model have been established. The specifics of what is contained in the kinematic and control packages is within the scope of this project. The control model is expected to change slightly to provide support for manipulation of the kinematic model during simulation, while the kinematic model will be wholly new to RDIS while the bindings between the control model and the kinematic model will be clearly defined as a contribution to the robotics modeling community.
 
+\subsection{Prototyping, Evaluation and Adoption: RDIS-enabled Tools and Frameworks}
+This research will generate a set of artifacts and tools to support the prototyping and evaluation of the domain model and its accompanying language specification.  These artifacts encompass three categories: 1) Language definition through language parsers and generators, 2) Framework and language bridge tools and 3) Model metrics and evaluation artifacts.  The existing grammar for RDIS will be updated and maintained in a open SVN repository (see Data Management Plan).\newline
 
+{\bf Model/RDIS Evaluation Criteria}
+%\begin{enumerate}
+\\- RDIS should be extended to be a model which contains the association between the exposed control interfaces and the behavior which is actuated in
+simulation.
+\\- RDIS should be general enough to model more than one kinematic category of robot and more than one robot within a category of kinematic design.
+\\- RDIS should be descriptive enough so that the model is rigorously simulatable.
+\\- There should be a mapping between the components and their associations from RDIS to at least one of the major simulation descriptions (Stage, URDF, SDF, and Webots are worthy targets).
+\\- RDIS is concise (not redundant) as measured via model metrics.
+\\- RDIS generated development modules should be sufficiently easy to use as evaluated based on user study and evaluation.
+%\end{enumerate}
