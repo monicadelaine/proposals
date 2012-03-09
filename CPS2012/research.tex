@@ -72,18 +72,49 @@ Additionally, transmissions mark a point of control for the robot application. I
 
 With the major components of the model identified via a survey of existing frameworks, what remains is to discover which components are required to produce a full implementation of the RDIS model. To that end, further research is required. At this point, the relationship between the kinematic model and the control model have been established. The specifics of what is contained in the kinematic and control packages is within the scope of this project. The control model is expected to change slightly to provide support for manipulation of the kinematic model during simulation, while the kinematic model will be wholly new to RDIS while the bindings between the control model and the kinematic model will be clearly defined as a contribution to the robotics modeling community.
 
+
 \subsection{Prototyping, Evaluation and Adoption: RDIS-enabled Tools and Frameworks}
+
+This challenge focuses on assisting the developer in defining framework drivers that enable the communication with individual devices.
+We propose a modeling approach where the definitions and mappings are specified independently from the actual framework (\eg ROS, Player) and robot (\eg Create, Pioneer).
+This is achieved by defining RDIS as a DSL rather than using general purpose languages to reduce technical and accidental complexity~\cite{Brooks1987}.
+Domain-specific modeling~\cite{Kelly2008}, and in general model-driven engineering (MDE~\cite{Stahl2006}), is an approach that allows models to be manipulated at the level of abstraction of the application domain the model is intended for, rather than at the level of computing.
+To bridge the gap between the application domain and the solution domain, MDE uses models to describe complex systems at multiple levels of abstraction and through automated support for transforming and analyzing models.
+A DSL is defined by means of a \emph{meta-model} that represents the key abstractions and intentions of an expert in a particular domain (in our case frameworks and robotic devices).
+A meta-model thus specifies the abstract syntax and static semantics of the set of model instances of that language.
+A model represents an abstraction of the real system, capturing some of its essential properties in order to simulate, and generate code for applications.
+The manipulation of models is performed through the use of \emph{model transformation}.
+It transforms a source model into a target model, both conforming to their respective meta-model.
+Although a model transformation is defined at the meta-model level, it is applied and executed on models.
+
+In order to map the messages exchanges between arbitrary frameworks and robots, RDIS will comprise two meta-models.
+The first one abstracts the concepts from frameworks.
+We have already developed a prototype of the models as part of a student project in an advanced graduate course that PI Syriani teaches.
+The framework meta-model is currently based on reverse-engineering ROS (still in early stages).
+We plan to perform the same task for the different frameworks to be able to define a framework-independent meta-model.
+Similarly, this will be performed on the device side.
+
+Once the meta-models of the language are defined, a rule-based model transformation specify the mapping between them~\cite{Jouault2008}.
+A rule is a declarative construct that dictates ``what'' shall be transformed and not ``how''.
+It consists of pre-condition and post-condition patterns~\cite{Ehrig2006}.
+The pre-condition pattern determines the applicability of a rule: it is usually described with a left-hand side (LHS) and optional negative application conditions (NACs).
+The LHS defines the pattern that must be found in the input model to apply the rule.
+The NAC defines a pattern that shall not be present, inhibiting the application of the rule.
+The right-hand side (RHS) imposes the post-condition pattern to be found after the rule was applied.
+An advantage of using the rule-based transformation paradigm is that it allows to specify the transformation as a set of operational rewriting rules instead of using imperative programming languages.
+Model transformation can thus be specified at a higher level of abstraction (hiding the implementation of the matching algorithms and the modifications of the data structures), closer to the domain of the models the transformation is applied to.
+Code generators will also be implemented from the RDIS meta-models to each platform in order to deploy the hardware.
+
+The evaluation of RDIS and the developed models will be conducted following these criteria:
+\vspace{-.5\baselineskip}%
+\begin{itemize}
+  \item RDIS should be extended to be a model which contains the association between the exposed control interfaces and the behavior which is actuated in
+  simulation.
+  \item RDIS should be general enough to model more than one kinematic category of robot and more than one robot within a category of kinematic design.
+  \item RDIS should be descriptive enough so that the model is rigorously simulatable.
+  \item There should be a mapping between the components and their associations from RDIS to at least one of the major simulation descriptions (Stage, URDF, SDF, and Webots are worthy targets).
+  \item RDIS is concise (not redundant) as measured via model metrics.
+  \item RDIS generated development modules should be sufficiently easy to use as evaluated based on user study and evaluation.
+\end{itemize}
+
 This research will generate a set of artifacts and tools to support the prototyping and evaluation of the domain model and its accompanying language specification.  These artifacts encompass three categories: 1) Language definition through language parsers and generators, 2) Framework and language bridge tools and 3) Model metrics and evaluation artifacts.  The existing grammar for RDIS will be updated and maintained in a open SVN repository (see Data Management Plan).\newline
-
-\eugene{My tasks}
-
-{\bf Model/RDIS Evaluation Criteria}
-%\begin{enumerate}
-\\- RDIS should be extended to be a model which contains the association between the exposed control interfaces and the behavior which is actuated in
-simulation.
-\\- RDIS should be general enough to model more than one kinematic category of robot and more than one robot within a category of kinematic design.
-\\- RDIS should be descriptive enough so that the model is rigorously simulatable.
-\\- There should be a mapping between the components and their associations from RDIS to at least one of the major simulation descriptions (Stage, URDF, SDF, and Webots are worthy targets).
-\\- RDIS is concise (not redundant) as measured via model metrics.
-\\- RDIS generated development modules should be sufficiently easy to use as evaluated based on user study and evaluation.
-%\end{enumerate}
