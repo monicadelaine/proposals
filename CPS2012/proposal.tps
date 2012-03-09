@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=proposal.tex
 
 [Frame0_View0,0]
-TopLine=19
+TopLine=2
 Cursor=1088
 
 [SessionInfo]
