@@ -1,5 +1,5 @@
 
-\section*{\vspace{-2em}\center Project Summary}
+\section*{\vspace{-1em}\center Project Summary}
 
 Intelligent robots have not quite made it to the front lines of security and reconnaissance.  A more prevalent approach is to remotely tele-operate a robot from a safe distance to investigate and, if needed, disarm a threat.  However as research continues in intelligent algorithms, we expect that operators will become a peer of the robot, allowing for a higher robot to human ratio.  Unfortunately as algorithms become more intelligent, the practice of operators making in field hardware modifications to a robot will become an issue.  Updates to the hardware will need to be reflected in intelligent algorithms either autonomously or by highly-skilled operators.  
 
@@ -26,3 +26,29 @@ The broader impacts of the proposed work can be categorized as either enabling m
 	\item[Keywords:]
    Domain Specific languages, Robotics, Robot Architectures and Frameworks
 \end{description}
+
+
+\newpage
+
+\section*{Summary Technical Details of Breakthrough Project}
+
+RDIS is the main innovation within the proposed research.  Technical choices about what and how RDIS will evolve will be based on the analysis of current software tools and hardware platforms as well as in conjunction with stakeholders (framework developers and platform/device manufacturers).  RDIS will be supported as an embedded or externally obtainable hardware description language that meets requirements of both manufacturers (concise, complete) and framework developers (sufficiently expressive and generalizable without redundancy).
+
+RDIS is currently based on the declarative language JSON, which is attractive to manufacturers unwilling to work with proprietary standards. Currently JSON-parsers, lexers and interpreters are built based on industry standard tools (ANTLR, StringTemplate).  However, it is expected that interpreters will be written in an appropriate language and toolset for the wide-range of support needed (IDE plug ins, etc).
+In this project, we will further improve the JSON implementation to support the complete set of features enumerated thereafter.
+We will also investigate a new domain-specific language that sits on top of JSON, that is optimally fit and maximally constrain domain-experts to build RDIS specifications.
+A model transformation (compilation) to JSON will ensure a full integration.
+
+RDIS supports seven concepts, each of which will be expanded to support additional platforms.  Also new concepts and language constructs will be added to support development and simulation tools and runtime execution.
+%
+\begin{enumerate}
+  \item Connections will be expands to include bus, memory and port-based transports as well as more of the standard transports (TCP/IP, Bluetooth, I2C).
+  \item Also better granularity of thread control will be introduced including multithreaded models that allow different frequencies for request/reply or publish/subscribe services.
+  \item State variables currently support two modes: constants and asynchronous primitives.  Scripting will updated to support data translation between primitives and state variables.
+  \item Primitives and message formats will be modified as needed to support new platforms.  However, it is thought that the current format string design is sufficient for formatting both encoded and raw byte strings.  Primitives will be modified to work with the expanded role of state variables.
+  \item Interfaces will also take advantage of the new embedded data translation scripting language.
+  \item Domain concepts will be expanded to better generalize actuators by incorporating a link/joint model with a novel transmission component that links to primitives.  Also generalized models of sensors (odometry, GPS or landmark identification, etc) will be added to complete the specification enough to support most common mobile sensor suites.  We will add a complete visual and collision model as well as relevant dynamics suitable for use in existing simulation environments.
+  \item Error handling semantics within the runtime environment will be added to give manufacturers a default approach to handling errors and to customize error handling based on the transport or runtime environment.
+  \item Management of sensor and actuator error models consistent with existing frameworks will allow for manufacturer provided error models to be propagated to the framework or controller.  An example would be a transformation of encoder error to pose error.  Although all sources of error (systematic and non-systematic) cannot be accounted for in this approach, it is currently better than existing approaches that abstract out specific device errors.
+\end{enumerate}
+
