@@ -10,7 +10,7 @@
       \label{dm}
 \end{figure*}
 
-This preliminary result supports the idea that general robot devices can be described declaratively in a manner that supports discovery and that links to the backend processes.  The RDIS must be expanded to be useful in a larger context.  The work proposed as part of this effort will accomplish the following major innovations to RDIS as a contribution to the engineering of cyber-physical systems: 
+This preliminary result supports the idea that general robot devices can be described declaratively in a manner that supports discovery and that links to the back-end processes.  RDIS must be expanded to be useful in a larger context \monica{such as}.  The work proposed as part of this effort will accomplish the following major innovations to RDIS as a contribution to the engineering of cyber-physical systems: 
 \begin{enumerate}
 \item Extend the processing models to include a larger set of execution semantics, 
 \item Extend the actuation model to include a larger set of popular kinematic chains from both manufacturing and exploration robotics, and
@@ -19,7 +19,7 @@ This preliminary result supports the idea that general robot devices can be desc
 
 \subsection{Expansion of execution semantics}
 
-The ability to generalize device to framework mapping requires documenting the concepts in existing mappings.  The domain model captures the invariant features of the device to framework mapping drives the contents of RDIS.  In Figure \ref{dm}, the domain is broken into seven related concepts: 1) connections, 2) state, 3) message semantics, 4) primitives, 5) interfaces, 6) thread control, and 7) robotics domain concepts.  {\sc Connection} refers to the transport used to communicate from the device driver to the framework.  Information needed to establish and maintain the connection is defined within this concept. The {\sc State} definition serves two purposes: 1) define constants relevant to other sections and 2) allow for state to be saved and retrieved as part of adhoc and periodic requests.   The {\sc Message Semantics} refers to the structure of the data which is actually sent to the robot over the connection. This specification is decided by the manufacturer and is generally uniform between primitives.   {\sc Primitives} focuses on describing the firmware interface in order to document the invariant features of the device.   The {\sc Interface} declaration, acting as a logical view of the {\sc Primitives},  specifies functions that are available to a developer to control a robot.   {\sc Domain Concepts} map interfaces to domain specific concepts in a framework agnostic manner.  These concepts are discussed in detail in \cite{Anderson2012}.
+The ability to generalize device to framework mapping requires documenting the concepts in existing mappings.  The domain model captures the invariant features of the device to framework mapping drives the contents of RDIS.  In Figure \ref{dm}, the domain is broken into seven related concepts: connections, state, message semantics, primitives, interfaces, thread control, and robotics domain concepts.  {\sc Connection} refers to the transport used to communicate from the device driver to the framework.  Information needed to establish and maintain the connection is defined within this concept. The {\sc State} definition serves two purposes: 1) define constants relevant to other sections and 2) allow for state to be saved and retrieved as part of adhoc and periodic requests.   The {\sc Message Semantics} refers to the structure of the data which is actually sent to the robot over the connection. This specification is decided by the manufacturer and is generally uniform between primitives.   {\sc Primitives} focus on describing the firmware interface in order to document the invariant features of the device.   The {\sc Interface} declaration, acting as a logical view of the {\sc Primitives},  specifies functions that are available to a developer to control a robot.   {\sc Domain Concepts} map interfaces to domain specific concepts in a framework agnostic manner.  These concepts are discussed in detail in \cite{Anderson2012}.
 
 \begin{figure*}[thpb]
       \centering
@@ -32,7 +32,7 @@ The ability to generalize device to framework mapping requires documenting the c
 
 In this research, we expand the basic implementation of each concept to accommodate a larger set of embedded firmware controllers.  These tasks include: 
 \begin{enumerate}
-\item Addition of a complete kinematic, visual and collision description consistent with existing simulators and frameworks (see Figure \ref{kvc}).  Although initial focus will be upon the initial kinematic design (differential drive), the proposed model is designed to accommodate other kinematic designs.
+\item Addition of a complete kinematic, visual and collision description consistent with existing simulators and frameworks (see Figure \ref{kvc}).  Although the initial focus will be upon the initial kinematic design (differential drive), the proposed model is designed to accommodate other kinematic designs \monica{such as}.
 \item Standard mechanism for error handling and notification at both the communication and primitive levels.  Error handling examples include re-establishment of connection or actions to take based on output parameters.  This is particularly relevant to platforms that require a heartbeat request periodically.
 \item Expansion of the initial single-threaded implementation to include dual and multi-threading models.  A dual model accommodates different input and output threads while a multithreaded model support different frequencies for periodically submitted requests. 
 \item Refinement of the state concept and how it matches to primitives and interfaces would provide a scripting language for transformation of data.  The state variable concept is instrumental in implementing periodic requests asynchronously from the client request/reply system.
@@ -41,7 +41,7 @@ In this research, we expand the basic implementation of each concept to accommod
 
 
 \subsection{Expansion of domain concepts to additional kinematic chains}
-Domain concepts map interfaces to domain specific concepts in a framework agnostic manner.  Each framework has a notion of a general set of abstract data types generated from device drivers such as pose estimates, pose relative to an identified landmark, control via linear and angular velocity along a dimension or axis, and point and fields of open distance.  The {\sc Domain concepts} definition identifies interfaces that map to the abstract concepts allowing for templates to map the abstract concepts to the existing interfaces available on a device.
+Domain concepts map interfaces to domain-specific concepts in a framework agnostic manner.  Each framework has a notion of a general set of abstract data types generated from device drivers such as pose estimates, pose relative to an identified landmark, control via linear and angular velocity along a dimension or axis, and point and fields of open distance.  The {\sc Domain concepts} definition identifies interfaces that map to the abstract concepts allowing for templates to map the abstract concepts to the existing interfaces available on a device.
 
 From the previous sections it is apparent that the robot kinematic modeling languages are missing necessary components for a generalized description for use in simulation. Some description formats do well in defining the geometries of the robot, but make categorical assumptions about the kinematics of the robot, offloading the actual kinematic description to the framework itself. For example. As an example, Stage has a drive ``diff'' statement to label a position element as having differential-drive steering, and Webots has a DifferentialWheels node which acts as the base node of a robot description having differential steering. URDF solves this by defining a relationship between transmissions and joints, but its approach is specific to the PR2 robot.
 
@@ -74,6 +74,8 @@ With the major components of the model identified via a survey of existing frame
 
 \subsection{Prototyping, Evaluation and Adoption: RDIS-enabled Tools and Frameworks}
 This research will generate a set of artifacts and tools to support the prototyping and evaluation of the domain model and its accompanying language specification.  These artifacts encompass three categories: 1) Language definition through language parsers and generators, 2) Framework and language bridge tools and 3) Model metrics and evaluation artifacts.  The existing grammar for RDIS will be updated and maintained in a open SVN repository (see Data Management Plan).\newline
+
+\eugene{My tasks}
 
 {\bf Model/RDIS Evaluation Criteria}
 %\begin{enumerate}
