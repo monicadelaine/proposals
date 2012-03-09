@@ -14,11 +14,11 @@ NormalPos.top=32
 NormalPos.right=1639
 NormalPos.bottom=789
 Class=LaTeXView
-Document=research.tex
+Document=schedule.tex
 
 [Frame0_View0,0]
-TopLine=143
-Cursor=17627
+TopLine=0
+Cursor=2191
 
 [Frame1]
 Flags=0
@@ -32,11 +32,11 @@ NormalPos.top=32
 NormalPos.right=1639
 NormalPos.bottom=789
 Class=LaTeXView
-Document=..\..\2011.NSF-SHF\proposal\intro.tex
+Document=proposal.tex
 
 [Frame1_View0,0]
-TopLine=28
-Cursor=3191
+TopLine=80
+Cursor=2933
 
 [Frame2]
 Flags=0
@@ -50,11 +50,11 @@ NormalPos.top=32
 NormalPos.right=1639
 NormalPos.bottom=789
 Class=LaTeXView
-Document=proposal.tex
+Document=research.tex
 
 [Frame2_View0,0]
-TopLine=62
-Cursor=3040
+TopLine=153
+Cursor=17648
 
 [SessionInfo]
 FrameCount=3
